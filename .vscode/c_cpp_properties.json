@@ -1,0 +1,26 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "/home/ivan/Downloads/arduino-1.8.13/tools/**",
+                "/home/ivan/Arduino/libraries/**",
+                "/home/ivan/Downloads/arduino-1.8.13/libraries/**",
+                "/home/ivan/Downloads/arduino-1.8.13/hardware/tools/**",
+                "/home/ivan/Downloads/arduino-1.8.13/hardware/arduino/avr/**"
+                ,"${workspaceFolder}"
+            ],
+            "forcedInclude": [
+                "/home/ivan/Downloads/arduino-1.8.13/hardware/arduino/avr/cores/arduino/Arduino.h"
+            ],
+            "defines": [
+                "USBCON"
+            ],
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "gnu17",
+            "cppStandard": "gnu++14"
+        }
+    ],
+    "version": 4
+}
