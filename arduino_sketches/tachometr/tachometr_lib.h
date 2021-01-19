@@ -5,13 +5,13 @@
 // забирай getRPM() частоту в оборотах в минуту
 // забирай getHz() частоту в Герцах
 // забирай getPeriod() период в мкс
-// #define _TACHO_TICKS_AMOUNT 10    // количество тиков для счёта времени
+#define _TACHO_TICKS_AMOUNT 180    // количество тиков для счёта времени
 #define _TACHO_TIMEOUT 1000000    // таймаут прерываний (мкс), после которого считаем что вращение прекратилось
 class Tacho {
   public:
     void tick() {   // tachoTime - время в мкс каждых _TACHO_TICKS_AMOUNT тиков
       if (!ticks--) {
-        ticks = _tiks_amount - 1;
+        ticks = _TACHO_TICKS_AMOUNT - 1;
         tachoTime = micros() - tachoTimer;
         tachoTimer += tachoTime;  //== tachoTimer = micros();
         ready = true;
@@ -26,7 +26,7 @@ class Tacho {
     uint16_t getRPM() {
       if (ready) {  // если готовы новые данные
         ready = false;
-        if (tachoTime != 0) rpm = (uint32_t)_tiks_amount * 60000000 / median3(tachoTime);
+        if (tachoTime != 0) rpm = (uint32_t)_TACHO_TICKS_AMOUNT * 60000000 / median3(tachoTime);
       }
       if (micros() - tachoTimer > _TACHO_TIMEOUT) rpm = 0;
       return rpm;
@@ -35,7 +35,7 @@ class Tacho {
     float getHz() {
       if (ready) {  // если готовы новые данные
         ready = false;
-        if (tachoTime != 0) hz = (float)_tiks_amount * 1000000 / median3(tachoTime);
+        if (tachoTime != 0) hz = (float)_TACHO_TICKS_AMOUNT * 1000000 / median3(tachoTime);
       }
       if (micros() - tachoTimer > _TACHO_TIMEOUT) hz = 0;
       return hz;

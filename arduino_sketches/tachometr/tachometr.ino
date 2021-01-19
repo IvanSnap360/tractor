@@ -1,10 +1,10 @@
 #define TACH_PIN 2  // пин тахометра (желательна внешняя подтяжка 10к к VCC)
-#include "Tacho.h"
+#include "tachometr_lib.h"
 Tacho tacho;
 void setup() {
   Serial.begin(9600);
-  pinMode(TACH_PIN, INPUT_PULLUP);  // тахо пин вентилятора тянем к VCC
-  attachInterrupt(0, isr, FALLING); // настраиваем прерывание
+  pinMode(TACH_PIN, INPUT);  // тахо пин вентилятора тянем к VCC
+  attachInterrupt(0, isr, RISING); // настраиваем прерывание
 }
 // обработчик прерывания
 void isr() {
