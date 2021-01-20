@@ -3,3 +3,4 @@ build/
 devel/
 generation_files/ros/ros_lib/*
 !generation_files/ros/ros_lib/ros2can/
+.catkin_workspace
