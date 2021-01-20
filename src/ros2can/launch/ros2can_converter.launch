@@ -1,0 +1,10 @@
+<launch>
+
+    <node name="serial" pkg="rosserial_python" respawn="true" type="serial_node.py" output="screen">
+        <param name="port" value="/dev/ttyUSB0"/>
+        <param name="baud" value="57600"/>
+    </node>
+    <node name="conventer" pkg="ros2can" type="conventer.py" output="screen"/>
+
+</launch>
+    
